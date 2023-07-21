@@ -12,17 +12,20 @@ export const GalerieProduits = () => {
 
 		setStatus('sending');
 
-		const response = await fetch('http://localhost:4000/001-galerie-produits', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify({
-				recipient: email,
-				subject: 'Galerie de PRODUITS',
-				message: 'Voici comme promis la galerie de produits demandee',
-			}),
-		});
+		const response = await fetch(
+			'https://wordpress-badass-api.onrender.com:10000/001-galerie-produits',
+			{
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({
+					recipient: email,
+					subject: 'Galerie de PRODUITS',
+					message: 'Voici comme promis la galerie de produits demandee',
+				}),
+			}
+		);
 
 		const data = await response.json();
 
